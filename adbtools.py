@@ -100,10 +100,17 @@ def click(point):
 	pass
 
 # send a string to remote device
+# @param	(string)info
+def input_text(info):
+	_run("adb shell input text {}".format(info))
+	print("{_time} : input text \"{text}\"".format(_time = time.asctime(), text = info))
+	pass
+
+# send a string to remote device
 # @param	(string)text
 def enter(string):
 	_run("adb shell input tap {x} {y}".format(x=point[0],y=point[1]))
-	print("{_time} : input text \"{text}\"".format(_time = time.asctime, text = string))
+	print("{_time} : input text \"{text}\"".format(_time = time.asctime(), text = string))
 	pass
 
 def u_click(string, derection = "正中间"):
@@ -119,6 +126,12 @@ def u_input(string):
 			click(getPoint(string, "center"))
 		pass
 	pass
+def u_enter(string):
+	if string != '':
+		input_text(string)
+		pass
+	pass
 # use chinese to code
 点击 = u_click
 计时 = clocker
+输入 = u_enter

@@ -1,0 +1,3 @@
+adb push  framework.jar  monkey.jar  文件到 /sdcard
+执行 
+adb shell CLASSPATH=/sdcard/monkey.jar:/sdcard/framework.jar exec app_process /system/bin tv.panda.test.monkey.Monkey -p com.panda.videoliveplatform --uiautomatormix --running-minutes 60
